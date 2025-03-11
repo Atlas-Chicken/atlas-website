@@ -16,7 +16,6 @@ const style : React.CSSProperties = {
 	color: "white",
 	opacity: 0.8,
 	fontWeight: "bold",
-	fontSize: "1.5em",
+	fontSize: "1.2em",
 	textTransform: "uppercase",
-	whiteSpace: "nowrap",
 };
