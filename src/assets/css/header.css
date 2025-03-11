@@ -9,11 +9,14 @@
 }
 
 .demo-body {
-	min-height: 100%;
-	height: 100%;
+	height: 100vh;
 	
 	width: 100%;
 	min-width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .demo-item {
@@ -45,10 +48,7 @@
 	min-width: 256px;
 	width: 512px;
 	max-width: 100vw;
-
-	margin-top: 25vh;
-	margin-left: 50vw;
-	transform: translate(-50%);
+	max-height: 80vh;
 	
 	background: #4263e8;
 	box-shadow: 0 0 5px 5px #22222277;
