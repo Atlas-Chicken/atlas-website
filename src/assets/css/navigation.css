@@ -1,0 +1,37 @@
+#menu {
+    width: 100vw;
+
+    box-shadow: 0 2px 24px 0 rgb(0 0 0 25%);
+    background: #4263e8;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#menu.is-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px;
+    color: white;
+}
+
+nav li a:hover {
+    color: white;
+    background: #0055e9;
+}

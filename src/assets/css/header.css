@@ -5,8 +5,7 @@
 
 	height: 100vh;
 
-	overflow: hidden;
-	z-index: -999;
+	overflow: clip;
 }
 
 .demo-body {
@@ -15,8 +14,6 @@
 	
 	width: 100%;
 	min-width: 100%;
-
-	z-index: -998;
 }
 
 .demo-item {
@@ -62,10 +59,4 @@
 	font-weight: 600;
 	text-align: center;
 	text-transform: uppercase;
-}
-
-.container {
-	min-height: 100vh;
-
-	background: #222;
 }
