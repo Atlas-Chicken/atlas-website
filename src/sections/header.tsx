@@ -8,7 +8,7 @@ export const Header = () => {
 		<div className="demo-container">
 			<Parallax startScroll={0} speed={-50} className="demo-body">
 				<video className="demo-item" muted loop autoPlay src="assets/videos/bg_video.mp4"/>
-				
+				{/* <div className="demo-item demo-filter"/> */}
 				<div className="demo-item demo-title">
 					<Logo/>
 					<h2>Atlas Chicken</h2>
