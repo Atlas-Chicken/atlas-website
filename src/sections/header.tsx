@@ -10,7 +10,7 @@ export const Header = () => {
 				<video className="demo-item" muted loop autoPlay src="assets/videos/bg_video.mp4"/>
 				{/* <div className="demo-item demo-filter"/> */}
 				<div className="demo-item demo-title">
-					<Logo/>
+					<Logo style={{ maxHeight: "40vh" }}/>
 					<h2>Atlas Chicken</h2>
 				</div>
 			</Parallax>

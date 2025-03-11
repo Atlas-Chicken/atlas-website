@@ -1,13 +1,9 @@
 import React from "react";
 
-type LogoProps = {
-    style? : React.CSSProperties
-}
-
-export const Logo = (props : LogoProps) => {
+export const Logo = (props : React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>) => {
   return (
     <>
-        <img style={{width: "auto", height: 128, aspectRatio: 0.8076, ...props}} className="logo" src="assets/images/logo.png" alt="Atlas Chicken Games, Ltd."/>
+      <img className="logo" src="assets/images/logo.png" alt="Atlas Chicken Games, Ltd." {...props}/>
     </>
   );
 };
