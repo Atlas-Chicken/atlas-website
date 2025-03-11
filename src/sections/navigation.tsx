@@ -13,7 +13,7 @@ export const Navigation = () => {
 	});
 		   
 	/* Method that will fix header after a specific scrollable */
-	const isSticky = (e : Event) => {
+	const isSticky = (_e : Event) => {
 		const header = document.querySelector('#menu');
 		if (header == null) return;
 
