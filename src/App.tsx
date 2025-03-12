@@ -1,4 +1,3 @@
-import { ParallaxProvider } from 'react-scroll-parallax'
 import './App.css'
 import { Header } from './sections/header'
 import { Introduction } from './sections/introduction'
@@ -9,9 +8,7 @@ function App() {
 
   return (
     <>
-    <ParallaxProvider>
-      <Header/>
-    </ParallaxProvider>
+    <Header/>
     <Navigation/>
     <Introduction/>
     {/* <Games/> */}
