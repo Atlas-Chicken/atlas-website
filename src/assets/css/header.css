@@ -23,7 +23,7 @@
 	position: absolute;
 }
 
-.demo-body video {
+.demo-video {
 	object-fit: cover;
 	
 	height: 100vh;
