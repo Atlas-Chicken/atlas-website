@@ -3,6 +3,7 @@ import { Header } from './sections/header'
 import { Introduction } from './sections/introduction'
 import { Copyright } from './sections/copyright'
 import { Navigation } from './sections/navigation'
+import { GameSection } from './sections/games'
 
 function App() {
 
@@ -10,8 +11,8 @@ function App() {
     <>
     <Header/>
     <Navigation/>
+    <GameSection/>
     <Introduction/>
-    {/* <Games/> */}
     {/* <About/> */}
     <div style={{ height: "60vh" }}></div>
     <Copyright/>

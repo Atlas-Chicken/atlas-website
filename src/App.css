@@ -1,0 +1,17 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.section-title {
+    margin-top: 1em;
+    padding-left: 32px;
+}
+
+.game-card {
+    cursor: pointer;
+    transition: scale 0.25s;
+}
+
+.game-card:hover {
+    scale: 1.1;
+}
