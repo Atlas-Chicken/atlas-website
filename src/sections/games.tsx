@@ -14,9 +14,9 @@ type GameProps = {
 
 const GameCard = ({ data, ...props } : GameProps) => {
 	return (
-		<div className="col game-card">
+		<div className="col game-card p-4">
 			<a onClick={() => props.setModal(data)}>
-				<div className="p-2" style={{ minHeight: "64px", borderRadius: 16, display: "flex", flexDirection: "column", alignItems: "center" }}>
+				<div style={{ minHeight: "64px", borderRadius: 16, display: "flex", flexDirection: "column", alignItems: "center" }}>
 					<img style={{ borderRadius: 16, width: "100%" }} src={data.thumbnail}></img>
 					<h2>{data.name}</h2>
 				</div>

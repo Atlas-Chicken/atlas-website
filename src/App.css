@@ -9,9 +9,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .game-card {
     cursor: pointer;
-    transition: scale 0.25s;
+    padding: 4;
+    margin: 8;
+    transition: padding 0.25s;
 }
 
 .game-card:hover {
-    scale: 1.1;
+    /* bootstrap uses !important, so we need it here too */
+    padding: 2px !important; 
+}
+
+.game-card img {
+    box-shadow: 0 2px 16px black;
+
 }
