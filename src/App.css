@@ -3,7 +3,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-    margin-top: 1em;
+    margin-top: 12px;
+    margin-bottom: 12px;
     padding-left: 32px;
 }
 
@@ -21,5 +22,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .game-card img {
     box-shadow: 0 2px 16px black;
-
 }

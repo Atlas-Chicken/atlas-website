@@ -1,3 +1,4 @@
+import { Anchor } from "../components/anchor";
 
 type AboutProps = {
 	data: {
@@ -51,7 +52,7 @@ const data = [
 export const Introduction = () => {
   return (
 	<>
-		<h2 className="section-title">The Team</h2>
+		<Anchor id="about" title="The Team"/>
 		<div className="container-fluid">
 			<div className="row gx-1 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
 				{data.map(x => <AboutCard data={x}/>)}

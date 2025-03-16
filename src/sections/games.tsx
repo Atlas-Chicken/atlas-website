@@ -1,5 +1,6 @@
 import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { Dispatch, SetStateAction, useMemo, useState } from "react";
+import { Anchor } from "../components/anchor";
 
 type GameData = {
 	name: string;
@@ -80,13 +81,12 @@ export const GameSection = () => {
 	
   return (
 	<>
-		<h2 className="section-title">Games</h2>
-		<div className="container-fluid">
+		<Anchor id="games" title="Games"/>
+		<div className="container-fluid my-8">
 			<div className="row gx-3 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
 				{gameList}
 			</div>
 		</div>
-
 		<Dialog open={modalData != null} onClose={() => setModalData(null)}>
 			<div style={{ position: "fixed", inset: 0, display: "flex", flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#00000066" }}>
 				<DialogPanel style={{ width: "80vw", background: "#000000dd", borderRadius: 8, overflow: "hidden" }}>
