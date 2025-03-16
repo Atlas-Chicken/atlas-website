@@ -1,12 +1,10 @@
 import { Logo } from "../components/logo";
 import '../assets/css/header.css';
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AutoVideo } from "../components/autovideo";
 
 export const Header = () => {
-	const scrollRef = useRef(null);
-	const { scrollYProgress } = useScroll({ target: scrollRef });
+	const { scrollYProgress } = useScroll();
 	
 	const viewport = window.visualViewport;
 	const viewportY = viewport ? viewport.height : 0;

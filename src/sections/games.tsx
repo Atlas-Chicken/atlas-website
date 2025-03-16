@@ -86,7 +86,7 @@ const data = [
 export const GameSection = () => {
 	const [modalData, setModalData] = useState<GameData | null>(null);
 
-	const gameList = useMemo(() => data.map(x => x.name && <GameCard data={x} setModal={setModalData}/>), []);
+	const gameList = useMemo(() => data.map((x, i) => x.name && <GameCard key={i} data={x} setModal={setModalData}/>), []);
 	
   return (
 	<>

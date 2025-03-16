@@ -55,7 +55,7 @@ export const Introduction = () => {
 		<Anchor id="about" title="The Team"/>
 		<div className="container-fluid">
 			<div className="row gx-1 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
-				{data.map(x => <AboutCard data={x}/>)}
+				{data.map((x, i) => <AboutCard key={i} data={x}/>)}
 			</div>
 		</div>
 	</>
