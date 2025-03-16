@@ -1,10 +1,12 @@
 import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { Dispatch, SetStateAction, useMemo, useState } from "react";
 import { Anchor } from "../components/anchor";
+import { DesktopView } from "../components/is-mobile";
 
 type GameData = {
 	name: string;
-	link: string;
+	itch?: string;
+	html?: string;
 	thumbnail: string;
 }
 
@@ -29,51 +31,58 @@ const GameCard = ({ data, ...props } : GameProps) => {
 const data = [
 	{
 		name: "Heltris",
-		link: "https://night0.itch.io/heltris",
+		itch: "https://night0.itch.io/heltris",
+		html: "https://itch.io/embed-upload/11388342?color=171239",
 		thumbnail: "https://img.itch.zone/aW1nLzE3NDQ0NTQ4LnBuZw==/315x250%23c/nq21NE.png"
 	},
 	{
 		name: "Caternal",
-		link: "https://silvyger.itch.io/caternal",
+		itch: "https://silvyger.itch.io/caternal",
+		html: "https://itch.io/embed-upload/7567811?color=cb9269",
 		thumbnail: "https://img.itch.zone/aW1nLzExNTQ2NDcwLnBuZw==/315x250%23c/SoiIyJ.png"
 	},
 	{
 		name: "You Are The Floor",
-		link: "https://night0.itch.io/you-are-the-floor",
+		itch: "https://night0.itch.io/you-are-the-floor",
 		thumbnail: "https://img.itch.zone/aW1nLzE0Mjk1ODE4LnBuZw==/315x250%23c/T3bvvp.png"
 	},
 	{
 		name: "Guardin' Gladiator",
-		link: "https://night0.itch.io/guardin-gladiator",
+		itch: "https://night0.itch.io/guardin-gladiator",
+		html: "https://itch.io/embed-upload/8279191?color=333333",
 		thumbnail: "https://img.itch.zone/aW1nLzEyNzIwODU3LnBuZw==/315x250%23c/gpd1ZU.png"
 	},
 	{
 		name: "Budget Bounty",
-		link: "https://ricenoodles.itch.io/budget-bounty",
+		itch: "https://ricenoodles.itch.io/budget-bounty",
+		html: "https://itch.io/embed-upload/8806253?color=181330",
 		thumbnail: "https://img.itch.zone/aW1nLzEzNTc2NzAzLnBuZw==/315x250%23c/fPPgcO.png"
 	},
 	{
 		name: "Kitty Kart",
-		link: "https://night0.itch.io/kitty-kart",
+		itch: "https://night0.itch.io/kitty-kart",
 		thumbnail: "https://img.itch.zone/aW1nLzEyMjUwNDg2LnBuZw==/315x250%23c/7%2BvKPe.png"
 	},
 	{
 		name: "Tricky Treat",
-		link: "https://night0.itch.io/tricky-treat",
+		itch: "https://night0.itch.io/tricky-treat",
+		html: "https://itch.io/embed-upload/6048906?color=37115b",
 		thumbnail: "https://img.itch.zone/aW1nLzcyOTQ4NjIucG5n/315x250%23c/asrC2C.png"
 	},
 	{
 		name: "Whacky Weapons",
-		link: "https://silvyger.itch.io/whackyweapons",
+		itch: "https://silvyger.itch.io/whackyweapons",
+		html: "https://itch.io/embed-upload/8631787?color=a8de6e",
 		thumbnail: "https://img.itch.zone/aW1nLzEzMzEyNjI3LnBuZw==/315x250%23c/ekWkfu.png"
 	},
 	{
 		name: "Panda Wizard",
-		link: "https://proto-here.itch.io/panda-wizard",
+		itch: "https://proto-here.itch.io/panda-wizard",
 		thumbnail: "https://img.itch.zone/aW1nLzEzMTcxODYyLnBuZw==/315x250%23c/Ri53pB.png"
 	}
 ]
 
+// Note we *could* embed the game into the site, but instead we're just opening the game as a new page for now
 export const GameSection = () => {
 	const [modalData, setModalData] = useState<GameData | null>(null);
 
@@ -100,7 +109,14 @@ export const GameSection = () => {
 									<p>Wow, this is a cool game! You should check it out.</p>
 								</div>
 								<div className="flex-grow-1"/>
-								<a className="w-100" href={modalData?.link}><button>Go to itch.io page</button></a>
+								<DesktopView>
+									{modalData && "html" in modalData &&
+										<a className="w-100" href={modalData?.html} target="_blank"><button>Play in Browser</button></a>
+									}
+								</DesktopView>
+								{modalData && "itch" in modalData &&
+									<a className="w-100" href={modalData?.itch}><button>Go to itch.io page</button></a>
+								}
 							</div>
 							<img className="col p-0 d-none d-sm-block" src={modalData?.thumbnail} style={{ width: "100%", height: "auto" }}/>
 						</div>
