@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Anchor } from "../components/anchor";
 
 type AboutProps = {
@@ -50,12 +51,14 @@ const data = [
 ]
 
 export const Introduction = () => {
+	const teamList = useMemo(() => data.map((x, i) => <AboutCard key={i} data={x}/>), [data]);
+
   return (
 	<>
 		<Anchor id="about" title="The Team"/>
 		<div className="container-fluid">
 			<div className="row gx-1 gy-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
-				{data.map((x, i) => <AboutCard key={i} data={x}/>)}
+				{teamList}
 			</div>
 		</div>
 	</>

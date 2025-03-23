@@ -1,7 +1,8 @@
-import { Description, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Description, Dialog, DialogPanel } from "@headlessui/react";
 import { Dispatch, SetStateAction, useMemo, useState } from "react";
 import { Anchor } from "../components/anchor";
 import { DesktopView } from "../components/is-mobile";
+import closeIcon from "../assets/close_24dp.svg";
 
 type GameData = {
 	name: string;
@@ -86,8 +87,8 @@ const data = [
 export const GameSection = () => {
 	const [modalData, setModalData] = useState<GameData | null>(null);
 
-	const gameList = useMemo(() => data.map((x, i) => x.name && <GameCard key={i} data={x} setModal={setModalData}/>), []);
-	
+	const gameList = useMemo(() => data.map((x, i) => x.name && <GameCard key={i} data={x} setModal={setModalData}/>), [data]);
+
   return (
 	<>
 		<Anchor id="games" title="Games"/>
@@ -96,10 +97,23 @@ export const GameSection = () => {
 				{gameList}
 			</div>
 		</div>
-		<Dialog open={modalData != null} onClose={() => setModalData(null)}>
+		{
+			modalData != null && <RenderGameModal data={modalData} close={() => setModalData(null)}/>
+		}
+	</>
+  );
+};
+
+const RenderGameModal = ({data: game, close} : { data: GameData; close: () => void; }) => {
+	return <>
+		<Dialog open={true} onClose={close}>
 			<div style={{ position: "fixed", inset: 0, display: "flex", flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#00000066" }}>
 				<DialogPanel style={{ width: "80vw", background: "#000000dd", borderRadius: 8, overflow: "hidden" }}>
-					<DialogTitle className="p-2" style={{ background: "#4263e8" }}>{modalData?.name}</DialogTitle>
+					<div className="row" style={{ background: "#4263e8", margin: 0 }}>
+						<h2 style={{ paddingLeft: "12px" }}>{game.name}</h2>
+						<div style={{ flexGrow: 1 }}></div>
+						<img className="modal-button" onClick={close} style={{ width: "auto", padding: 8 }} src={closeIcon}/>
+					</div>
 					<div className="container-fluid">
 
 						<div className="row">
@@ -110,19 +124,19 @@ export const GameSection = () => {
 								</div>
 								<div className="flex-grow-1"/>
 								<DesktopView>
-									{modalData && "html" in modalData &&
-										<a className="w-100" href={modalData?.html} target="_blank"><button>Play in Browser</button></a>
+									{"html" in game &&
+										<a className="w-100" href={game.html} target="_blank"><button>Play in Browser</button></a>
 									}
 								</DesktopView>
-								{modalData && "itch" in modalData &&
-									<a className="w-100" href={modalData?.itch}><button>Go to itch.io page</button></a>
+								{"itch" in game &&
+									<a className="w-100" href={game.itch}><button>Go to itch.io page</button></a>
 								}
 							</div>
-							<img className="col p-0 d-none d-sm-block" src={modalData?.thumbnail} style={{ width: "100%", height: "auto" }}/>
+							<img className="col p-0 d-none d-sm-block" src={game.thumbnail} style={{ width: "100%", height: "auto" }}/>
 						</div>
 
 						<div className="row d-block d-sm-none mt-4">
-							<img src={modalData?.thumbnail} style={{ width: "100%" }}/>
+							<img src={game.thumbnail} style={{ width: "100%" }}/>
 						</div>
 
 					</div>
@@ -130,5 +144,4 @@ export const GameSection = () => {
 			</div>
 		</Dialog>
 	</>
-  );
-};
+}
